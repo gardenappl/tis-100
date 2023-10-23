@@ -1,0 +1,122 @@
+@0
+1:     #
+4:   #
+7:   ###
+16:#
+17:#   #
+21:# # #
+23:# ###
+28:###
+29:### #
+31:#####
+
+@1
+## NUMBERS
+MOV UP,ACC
+MOV ACC,LEFT
+MOV ACC,LEFT
+
+@2
+BEG:MOV ANY,ACC
+    JLZ 2
+    JEZ 3
+    SUB 2
+    MOV ACC,RIGHT
+    MOV RIGHT,LAST
+    MOV RIGHT,LAST
+    MOV RIGHT,LAST
+1:  MOV 3,LAST
+    MOV 6,LAST
+    MOV 2,LAST
+
+@3
+BEG:MOV ANY,ACC
+    JLZ 4
+    JEZ 5
+    SUB 2
+    MOV ACC,DOWN
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+2:  MOV 6,LAST
+    MOV 3,LAST
+    MOV 6,LAST
+    JMP BEG
+5:  MOV 3,LAST
+    MOV 6,LAST
+    MOV 2,LAST
+
+@4
+    #   ### #   #
+    #   #   #####
+##### ##### #
+
+##### # ### ### #
+# # # # # # # # #
+##### ### # # ###
+
+# ### ##### # # #
+# # # # # # # # #
+##### ### # #####
+
+#####
+#   #
+#####
+
+@5
+MOV 5, RIGHT
+RIP:JMP RIP
+
+@6
+BEG:MOV -1,ACC
+    ADD LEFT
+    JLZ 0
+    JEZ 1
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    JMP BEG
+0:  MOV 6,LAST
+    MOV 3,LAST
+    MOV 6,LAST
+    JMP BEG
+1:  MOV 3,LAST
+    MOV 6,LAST
+    MOV 2,LAST
+
+@7
+BEG:MOV ANY,ACC
+    JLZ 6
+    JEZ 7
+    SUB 2
+    MOV ACC,DOWN
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+6:  MOV 6,LAST
+    MOV 3,LAST
+    MOV 6,LAST
+    JMP BEG
+7:  MOV 3,LAST
+    MOV 6,LAST
+    MOV 2,LAST
+
+@8
+
+
+@9
+MOV UP,RIGHT
+
+@10
+MOV UP,DOWN
+
+@11
+BEG:MOV ANY,ACC
+    JEZ 9
+8:  MOV 6,LAST
+    MOV 3,LAST
+    MOV 6,LAST
+    JMP BEG
+9:  MOV 3,LAST
+    MOV 6,LAST
+    MOV 2,LAST

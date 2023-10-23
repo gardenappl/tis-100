@@ -1,0 +1,147 @@
+@0
+2:     #E
+9:   #  E
+15:  ###E
+33:#    E
+35:#   #E
+43:# # #E
+45:# ###E
+57:###  E
+59:### #E
+63:#####E
+
+@1
+## NUMBERS
+
+@2
+BEG:MOV ANY,ACC
+    SUB 1
+    MOV ACC,RIGHT
+    JEZ 2
+    JGZ BEG
+    MOV LAST,RIGHT
+    MOV LAST,RIGHT
+    MOV LAST,RIGHT
+    JMP BEG
+2:  MOV 29,RIGHT
+    MOV 21,RIGHT
+    MOV 23,RIGHT
+
+@3
+BEG:MOV ANY,ACC
+    SUB 1
+    MOV ACC,DOWN
+    JEZ 3
+    JGZ BEG
+    MOV LAST,DOWN
+    MOV LAST,DOWN
+    MOV LAST,DOWN
+    JMP BEG
+3:  MOV 21,DOWN
+    MOV 21,DOWN
+    MOV 31,DOWN
+
+@4
+    #   ### #   #
+    #   #   #####
+##### ##### #
+
+##### # ### ### #
+# # # # # # # # #
+##### ### # # ###
+
+# ### ##### # # #
+# # # # # # # # #
+##### ### # #####
+
+#####
+#   #
+#####
+
+@5
+MOV 4,RIGHT
+MOV 0,DOWN
+MOV 0,DOWN
+MOV 0,DOWN
+MOV 1,DOWN
+MOV 0,DOWN
+MOV 2,DOWN
+RIP:JMP RIP
+
+@6
+BEG:MOV ANY,ACC
+    SUB 1
+    MOV ACC,UP
+    JEZ 1
+    JLZ 0
+0:  MOV 31,UP
+    MOV 17,UP
+    MOV 31,UP
+    JMP BEG
+1:  MOV 17,UP
+    MOV 31,UP
+    MOV 16,UP
+
+@7
+BEG:MOV ANY,ACC
+    SUB 1
+    MOV ACC,DOWN
+    JEZ 4
+    JGZ BEG
+    MOV LAST,DOWN
+    MOV LAST,DOWN
+    MOV LAST,DOWN
+    JMP BEG
+4:  MOV 15,DOWN
+    MOV 9,DOWN
+    MOV 63,DOWN
+
+@8
+
+
+@9
+MOV UP,RIGHT
+MOV UP,RIGHT
+MOV 32,RIGHT
+MOV 32,RIGHT
+MOV 16,RIGHT
+MOV 16,RIGHT
+MOV 8,RIGHT
+MOV 8,RIGHT
+MOV 4,RIGHT
+MOV 4,RIGHT
+MOV 2,RIGHT
+MOV 2,RIGHT
+MOV 1,RIGHT
+
+@10
+NXT:MOV LEFT,DOWN
+    MOV LEFT,DOWN
+    MOV RIGHT,ACC
+DEC:SUB LEFT
+    JEZ END
+    JLZ NOT
+    MOV 4,DOWN
+    MOV LEFT,NIL
+    JMP DEC
+NOT:MOV 0,DOWN
+    ADD LEFT
+    JMP DEC
+END:MOV -1,DOWN
+
+@11
+BEG:MOV ANY,ACC
+    SUB 1
+    JEZ 5
+    JGZ 6
+    MOV LAST,LEFT
+    MOV LAST,LEFT
+    MOV LAST,LEFT
+    JMP BEG
+5:  MOV 23,LEFT
+    MOV 21,LEFT
+    MOV 29,LEFT
+    JMP BEG
+6:  MOV 31,LEFT
+    MOV 21,LEFT
+    MOV 29,LEFT

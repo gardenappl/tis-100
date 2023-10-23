@@ -1,0 +1,149 @@
+@0
+## NUMBERS OCTAL
+3:     #E
+9:   #  E
+15:  ###E
+33:#    E
+35:#   #E
+43:# # #E
+47:# ###E
+57:###  E
+59:### #E
+63:#####E
+
+@1
+
+
+@2
+BEG:MOV ANY,ACC
+    SUB 1
+    JEZ 2
+    SUB 1
+    MOV ACC,RIGHT
+    MOV RIGHT,LAST
+    MOV RIGHT,LAST
+    MOV RIGHT,LAST
+    JMP BEG
+2:  MOV 59,LAST
+    MOV 43,LAST
+    MOV 47,LAST
+
+@3
+BEG:MOV ANY,ACC
+    SUB 1
+    JEZ 3
+    MOV ACC,DOWN
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    JMP BEG
+3:  MOV 43,LAST
+    MOV 43,LAST
+    MOV 63,LAST
+
+@4
+    #   ### #   #
+    #   #   #####
+##### ##### #
+
+##### # ### ### #
+# # # # # # # # #
+##### ### # # ###
+
+# ### ##### # # #
+# # # # # # # # #
+##### ### # #####
+
+#####
+#   #
+#####
+
+@5
+MOV 7,RIGHT
+MOV 0,DOWN
+MOV 0,DOWN
+MOV 0,DOWN
+MOV 1,DOWN
+MOV 0,DOWN
+MOV 2,DOWN
+RIP:JMP RIP
+
+@6
+BEG:MOV ANY,ACC
+    JEZ 1
+    JLZ 0
+    MOV ACC,UP
+    MOV UP,DOWN
+    MOV UP,DOWN
+    MOV UP,DOWN
+    JMP BEG
+0:  MOV 63,DOWN
+    MOV 35,DOWN
+    MOV 63,DOWN
+    JMP BEG
+1:  MOV 35,DOWN
+    MOV 63,DOWN
+    MOV 33,DOWN
+
+@7
+BEG:MOV ANY,ACC
+    SUB 1
+    JEZ 4
+    SUB 2
+    MOV ACC,DOWN
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    JMP BEG
+4:  MOV 15,LAST
+    MOV 9,LAST
+    MOV 63,LAST
+
+@8
+
+
+@9
+MOV UP,RIGHT
+MOV UP,RIGHT
+MOV 32,RIGHT
+MOV 32,RIGHT
+MOV 16,RIGHT
+MOV 16,RIGHT
+MOV 8,RIGHT
+MOV 8,RIGHT
+MOV 4,RIGHT
+MOV 4,RIGHT
+MOV 2,RIGHT
+MOV 2,RIGHT
+MOV 1,RIGHT
+
+@10
+NXT:MOV LEFT,DOWN
+    MOV LEFT,DOWN
+    MOV UP,ACC
+DEC:SUB LEFT
+    JEZ END
+    JLZ NOT
+    MOV 3,DOWN
+    MOV LEFT,NIL
+    JMP DEC
+NOT:MOV 4,DOWN
+    ADD LEFT
+    JMP DEC
+END:MOV -1,DOWN
+
+@11
+BEG:MOV ANY,ACC
+    JLZ 5
+    JEZ 6
+7:  MOV 3,LAST
+    MOV 3,LAST
+    MOV 63,LAST
+    JMP BEG
+6:  MOV 63,LAST
+    MOV 43,LAST
+    MOV 59,LAST
+    JMP BEG
+5:  MOV 47,LAST
+    MOV 43,LAST
+    MOV 59,LAST

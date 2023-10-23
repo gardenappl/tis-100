@@ -1,0 +1,40 @@
+@0
+MOV UP,RIGHT
+
+@1
+    MOV LEFT,ACC
+    MOV LEFT,DOWN
+    MOV LEFT,DOWN
+GET:MOV ACC,RIGHT
+    JMP GET
+
+@2
+
+
+@3
+
+
+@4
+
+
+@5
+    MOV UP,ACC
+    MOV UP,DOWN
+GET:MOV ACC,RIGHT
+    JMP GET
+
+@6
+
+
+@7
+
+
+@8
+
+
+@9
+    MOV UP,ACC
+GET:MOV ACC,RIGHT
+    JMP GET
+
+@10

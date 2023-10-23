@@ -1,0 +1,57 @@
+@0
+
+
+@1
+MOV UP,RIGHT
+
+@2
+    MOV LEFT,ACC
+    MOV 1,DOWN#INI
+    MOV ACC,DOWN
+    SWP
+    MOV UP,ACC
+EXP:SUB 1
+    JEZ END
+   !MOV 6,DOWN#MUL
+    SWP
+    MOV ACC,DOWN
+    SWP
+    JMP EXP
+END:MOV 3,DOWN#END
+
+@3
+
+
+@4
+
+
+@5
+-IN:JRO UP
+INI:MOV UP,ACC
+    JMP -IN
+END:MOV 1,DOWN#END
+    MOV ACC,DOWN
+    JMP -IN
+MUL:SWP
+    MOV UP,ACC
+CNT:MOV 6,DOWN#SUM
+    SWP
+    MOV ACC,DOWN
+    SWP
+    SUB 1
+    JGZ CNT
+    MOV 3,DOWN#GET
+
+@6
+
+
+@7
+-IN:JRO UP
+END:MOV UP,DOWN
+    JMP -IN
+GET:MOV ACC,UP
+    MOV 0,ACC
+    JMP -IN
+SUM:ADD UP
+
+@8

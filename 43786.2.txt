@@ -1,0 +1,39 @@
+@0
+
+
+@1
+    MOV UP,ACC
+ADD:JEZ END
+    MOV 1,RIGHT#AD
+    SUB 1
+    JMP ADD
+END:MOV 4,RIGHT#EN
+
+@2
+    MOV UP,ACC
+-IN:JRO LEFT
+ADD:MOV 1,DOWN#ADD
+    MOV ACC,DOWN
+    JMP -IN
+END:MOV 3,DOWN#END
+
+@3
+
+
+@4
+
+
+@5
+-IN:JRO UP
+ADD:ADD UP
+    JMP -IN
+END:MOV ACC,DOWN
+    MOV 0,ACC
+
+@6
+
+
+@7
+MOV UP,DOWN
+
+@8

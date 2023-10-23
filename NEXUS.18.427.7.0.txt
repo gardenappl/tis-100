@@ -1,0 +1,47 @@
+@0
+
+
+@1
+    MOV UP,ACC
+8DV:SUB 8
+    MOV 4,DOWN#ADD
+    JGZ 8DV
+    MOV 1,DOWN#END
+    MOV ACC,RIGHT
+
+@2
+BEG:MOV LEFT,ACC
+    JLZ NDV
+    MOV 0,DOWN
+    JMP BEG
+NDV:SUB 2
+    MOV ACC,DOWN
+
+@3
+
+
+@4
+
+
+@5
+-IN:JRO UP
+END:MOV ACC,RIGHT
+    MOV 0,ACC
+    JMP -IN
+ADD:ADD 10
+
+@6
+MOV LEFT,ACC
+ADD UP
+MOV ACC,DOWN
+
+@7
+
+
+@8
+
+
+@9
+MOV UP,DOWN
+
+@10

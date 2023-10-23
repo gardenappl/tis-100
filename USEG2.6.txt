@@ -1,0 +1,190 @@
+@0
+  ## CHAR DISPLAY
+3:     #E
+9:   #  E
+11:  # #E
+15:  ###E
+21: # # E
+29: ### E
+33:#    E
+35:#   #E
+43:# # #E
+47:# ###E
+57:###  E
+59:### #E
+61:#### E
+63:#####E
+
+@1
+# MAIN
+NEW:MOV 1,ACC
+    MOV 1,DOWN#LIN
+BEG:SWP
+    MOV UP,ACC
+    JLZ NEW
+    MOV 3,DOWN#CHR
+    MOV ACC,DOWN
+    SWP
+    MOV ACC,DOWN
+    SUB 16
+    JGZ NEW
+    ADD 20
+    JMP BEG
+
+@2
+BEG:MOV ANY,ACC
+    SUB 1
+    JEZ 2F
+    SUB 2
+    MOV ACC,RIGHT
+    MOV RIGHT,LAST
+    MOV RIGHT,LAST
+    MOV RIGHT,LAST
+    JMP BEG
+2F: MOV 63,LAST
+    MOV 11,LAST
+    MOV 11,LAST
+
+@3
+BEG:MOV ANY,ACC
+    JLZ 3C
+    JEZ 4H
+    MOV ACC,DOWN
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    JMP BEG
+3C: MOV 29,LAST
+    MOV 35,LAST
+    MOV 35,LAST
+    JMP BEG
+4H: MOV 63,LAST
+    MOV 9,LAST
+    MOV 63,LAST
+
+@4
+MOV RIGHT,DOWN
+
+##### ##### ####
+#   # #   #   # #
+### # ####  ####
+
+##### ##### #####
+  #   # # # # # #
+##### # # #  # #
+
+      #####  ###
+#####   # # #   #
+        # # #   #
+
+@5
+# CHAR PRINTER
+-IN:JRO UP
+LIN:MOV 1,LEFT#LIN
+    JMP -IN
+CHR:MOV 4,LEFT#GET
+    MOV UP,ACC
+    SUB 1
+    MOV ACC,RIGHT
+    MOV UP,ACC
+    MOV ACC,DOWN
+    ADD 1
+    MOV ACC,DOWN
+    ADD 1
+    MOV ACC,DOWN
+    JMP -IN
+
+@6
+BEG:MOV ANY,ACC
+    JEZ 1I
+    JLZ 0
+    MOV ACC,UP
+    MOV UP,DOWN
+    MOV UP,DOWN
+    MOV UP,DOWN
+    JMP BEG
+0:  MOV 1,DOWN
+    MOV 1,DOWN
+    MOV 1,DOWN
+    JMP BEG
+1I: MOV 1,DOWN
+    MOV 63,DOWN
+    MOV 1,DOWN
+
+@7
+BEG:MOV ANY,ACC
+    SUB 2
+    JGZ NXT
+5&6:MOV 63,LAST
+    MOV 43,LAST
+    JEZ 6B
+5E: MOV 43,LAST
+    JMP BEG
+6B: MOV 21,LAST
+    JMP BEG
+NXT:MOV ACC,DOWN
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+    MOV DOWN,LAST
+
+@8
+# ROW MEMORY
+    MOV UP,NIL
+RES:MOV 30,ACC
+-IN:JRO ANY
+LIN:SUB 6
+    JLZ RES
+    JMP -IN
+GET:MOV ACC,RIGHT
+    MOV ACC,RIGHT
+    MOV ACC,RIGHT
+    JMP -IN
+
+@9
+# CHAR DECODE HELP
+MOV LEFT,RIGHT
+MOV UP,RIGHT
+MOV 32,RIGHT
+MOV 32,RIGHT
+MOV 16,RIGHT
+MOV 16,RIGHT
+MOV 8,RIGHT
+MOV 8,RIGHT
+MOV 4,RIGHT
+MOV 4,RIGHT
+MOV 2,RIGHT
+MOV 2,RIGHT
+MOV 1,RIGHT
+
+@10
+# CHAR DECODE
+NXT:MOV LEFT,DOWN
+    MOV LEFT,DOWN
+    MOV UP,ACC
+DEC:SUB LEFT
+    JEZ END
+    JLZ NOT
+    MOV 4,DOWN
+    MOV LEFT,NIL
+    JMP DEC
+NOT:MOV 0,DOWN
+    ADD LEFT
+    JMP DEC
+END:MOV -1,DOWN
+
+@11
+BEG:MOV ANY,ACC
+    SUB 2
+    JGZ 9A
+    JEZ 8D
+7G: MOV 63,LAST
+    MOV 35,LAST
+    MOV 59,LAST
+    JMP BEG
+8D: MOV 63,LAST
+    MOV 35,LAST
+    MOV 61,LAST
+    JMP BEG
+9A: MOV 61,LAST
+    MOV 11,LAST
+    MOV 61,LAST
